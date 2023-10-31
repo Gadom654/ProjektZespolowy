@@ -2,7 +2,7 @@ document.getElementById("verify-button").addEventListener("click", function() {
     var verificationCode = document.getElementById("verification-code").value;
 
     var userData = {
-        Username: 'username_of_the_user', // You might need to store this temporarily after registration or ask the user again.
+        Username: '8c559066-0f28-48b3-9e98-c753da30a795', // You might need to store this temporarily after registration or ask the user again.
         Pool: userPool
     };
     var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
