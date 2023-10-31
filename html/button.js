@@ -27,6 +27,6 @@
             }
             cognitoUser = result.user;
             console.log('user name is ' + cognitoUser.getUsername());
-            // Here, implement the code to handle the successful registration.
-        });
+            window.location.href = "verification.html";
+	});
     });
