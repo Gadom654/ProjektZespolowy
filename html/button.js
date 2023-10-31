@@ -1,4 +1,3 @@
-<script>
     document.getElementById('registerButton').addEventListener('click', function(event){
         event.preventDefault();
 
@@ -31,5 +30,3 @@
             // Here, implement the code to handle the successful registration.
         });
     });
-</script>
-
