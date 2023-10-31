@@ -1,0 +1,185 @@
+/* Resetowanie podstawowych stylów */
+body, h1, label, input, button {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.sky {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: #87CEFA;  /* Kolor nieba */
+}
+
+.sun {
+    position: absolute;
+    background-color: #FFD700;  /* Kolor słońca */
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    top: 10%;
+    right: 10%;
+}
+
+.cloud {
+    position: absolute;
+    background: url('assets\cloud.jpg') no-repeat;
+    width: 150px;
+    height: 80px;
+    bottom: 20%;
+}
+
+.cloud1 {
+    left: -20%;
+    animation: moveClouds 20s linear infinite;
+}
+
+.cloud2 {
+    left: -40%;
+    bottom: 30%;
+    animation: moveClouds 25s linear infinite;
+}
+
+.cloud3 {
+    left: -60%;
+    bottom: 10%;
+    animation: moveClouds 15s linear infinite;
+}
+
+@keyframes moveClouds {
+    to {
+        transform: translateX(100%);
+    }
+}
+
+/* Style dla rejestracji */
+.registration-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.registration-title {
+    font-size: 2.5em;
+    color: #0077B6;
+    margin-bottom: 20px;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #0077B6;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #005999;
+}
+/* Style dla profilu */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.profile-title {
+    font-size: 2.5em;
+    color: #0077B6;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Style dla logowania */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.login-title {
+    font-size: 2.5em;
+    color: #0077B6;
+    margin-bottom: 20px;
+}
+
+/* Style dla strony głównej */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.home-title {
+    font-size: 2.8em;
+    color: #0077B6;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.home-subtitle {
+    font-size: 1.8em;
+    color: #0077B6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0077B6;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #005999;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Użytkownika</title>
+    <link rel="stylesheet" href="assets\css\main.css">
+</head>
+<body class="sky">
+
+    <div class="container profile-container">
+        <h1 class="profile-title">Twój profil</h1>
+
+        <form id="profileForm">
+            <div class="form-group">
+                <label for="username">Nazwa użytkownika:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="allergy">Informacje o alergiach:</label>
+                <textarea id="allergy" name="allergy" rows="4" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <button type="submit">Zaktualizuj profil</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+</html>
