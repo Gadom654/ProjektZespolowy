@@ -21,6 +21,8 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
             // User authentication was successful
             console.log('Login successful!');
             // You can now use the Cognito tokens, redirect the user, etc.
+	     window.location.href = 'update.html';
+
         },
 
         onFailure: function(err) {
