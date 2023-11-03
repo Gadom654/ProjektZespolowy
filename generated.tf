@@ -3,7 +3,7 @@
 
 # __generated__ by Terraform from "d1ku3c7glap9vr"
 resource "aws_amplify_app" "my_amp" {
-  access_token                  = null # sensitive
+  access_token                  = var.github_oauth_token # sensitive
   auto_branch_creation_patterns = []
   basic_auth_credentials        = null # sensitive
   build_spec                    =  <<-EOT
