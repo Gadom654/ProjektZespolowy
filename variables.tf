@@ -1,6 +1,7 @@
 variable "github_oauth_token" {
   description = "OAuth token for GitHub repository access"
   type        = string
+  sensitive   = true
 }
 variable "app_name" {
   type        = string
