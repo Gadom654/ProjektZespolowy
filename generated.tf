@@ -5,7 +5,6 @@
 resource "aws_amplify_app" "my_amp" {
   access_token                  = var.github_oauth_token # sensitive
   auto_branch_creation_patterns = []
-  basic_auth_credentials        = null # sensitive
   build_spec                    =  <<-EOT
 version: 1
 applications:
