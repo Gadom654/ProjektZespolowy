@@ -18,9 +18,9 @@ resource "aws_scheduler_schedule" "cron" {
     mode                      = "FLEXIBLE"
   }
   target {
-    arn      = "arn:aws:lambda:eu-central-1:601284756801:function:dataupdate"
+    arn      = aws_lambda_function.updater.arn
     input    = null
-    role_arn = "arn:aws:iam::601284756801:role/service-role/Amazon_EventBridge_Scheduler_LAMBDA_b2b54f275e"
+    role_arn = aws_iam_role.iam_for_lambda.arn
     retry_policy {
       maximum_event_age_in_seconds = 86400
       maximum_retry_attempts       = 0

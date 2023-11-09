@@ -51,6 +51,9 @@ EOT
 resource "aws_amplify_branch" "amplify_branch" {
   app_id = aws_amplify_app.my_amp.id
   branch_name = var.branch_name
+  tags = {
+    Projekt = "ProjektZespolowy"
+  }
 }
 resource "aws_amplify_domain_association" "domain_association" {
   app_id      = aws_amplify_app.my_amp.id
@@ -61,7 +64,6 @@ resource "aws_amplify_domain_association" "domain_association" {
     branch_name = aws_amplify_branch.amplify_branch.branch_name
     prefix      = var.branch_name
   }
-
 }
 output "amplify_app_id" {
   value = aws_amplify_app.my_amp.id
@@ -87,7 +89,9 @@ resource "aws_dynamodb_table" "allergy" {
   stream_enabled              = false
   stream_view_type            = null
   table_class                 = "STANDARD"
-  tags                        = {}
+  tags = {
+    Projekt = "ProjektZespolowy"
+  }
   tags_all                    = {}
   write_capacity              = 1
   attribute {
@@ -119,7 +123,9 @@ resource "aws_dynamodb_table" "users" {
   stream_enabled              = false
   stream_view_type            = null
   table_class                 = "STANDARD"
-  tags                        = {}
+  tags = {
+    Projekt = "ProjektZespolowy"
+  }
   tags_all                    = {}
   write_capacity              = 1
   attribute {
