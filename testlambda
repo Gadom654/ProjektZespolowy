@@ -1,0 +1,101 @@
+# __generated__ by Terraform
+# Please review these resources and move them into your main configuration files.
+
+# __generated__ by Terraform
+resource "aws_lambda_function" "data" {
+  architectures                  = ["x86_64"]
+  code_signing_config_arn        = null
+  description                    = null
+  filename                       = null
+  function_name                  = "dataupdate"
+  handler                        = "lambda_function.lambda_handler"
+  image_uri                      = null
+  kms_key_arn                    = null
+  layers                         = []
+  memory_size                    = 128
+  package_type                   = "Zip"
+  publish                        = null
+  reserved_concurrent_executions = -1
+  role                           = "arn:aws:iam::601284756801:role/service-role/dataupdate-role-rahmkjru"
+  runtime                        = "python3.11"
+  s3_bucket                      = null
+  s3_key                         = null
+  s3_object_version              = null
+  skip_destroy                   = false
+  source_code_hash               = "radCQy7A/2htDrvM63MWbZ8Ea4DMm5FJT679qQUZVc8="
+  tags                           = {}
+  tags_all                       = {}
+  timeout                        = 3
+  ephemeral_storage {
+    size = 512
+  }
+  tracing_config {
+    mode = "PassThrough"
+  }
+}
+
+# __generated__ by Terraform
+resource "aws_lambda_function" "update" {
+  architectures                  = ["x86_64"]
+  code_signing_config_arn        = null
+  description                    = null
+  filename                       = null
+  function_name                  = "UpdateUserDataLambda"
+  handler                        = "lambda_function.lambda_handler"
+  image_uri                      = null
+  kms_key_arn                    = null
+  layers                         = []
+  memory_size                    = 128
+  package_type                   = "Zip"
+  publish                        = null
+  reserved_concurrent_executions = -1
+  role                           = "arn:aws:iam::601284756801:role/service-role/dataupdate-role-rahmkjru"
+  runtime                        = "python3.11"
+  s3_bucket                      = null
+  s3_key                         = null
+  s3_object_version              = null
+  skip_destroy                   = false
+  source_code_hash               = "binc2n6bTTW3FcHBJZ2uXp/fU4n4Sbo9rEot6ppXJFU="
+  tags                           = {}
+  tags_all                       = {}
+  timeout                        = 3
+  ephemeral_storage {
+    size = 512
+  }
+  tracing_config {
+    mode = "PassThrough"
+  }
+}
+
+# __generated__ by Terraform
+resource "aws_lambda_function" "retri" {
+  architectures                  = ["x86_64"]
+  code_signing_config_arn        = null
+  description                    = null
+  filename                       = null
+  function_name                  = "RetrieveUserDataLambda"
+  handler                        = "lambda_function.lambda_handler"
+  image_uri                      = null
+  kms_key_arn                    = null
+  layers                         = []
+  memory_size                    = 128
+  package_type                   = "Zip"
+  publish                        = null
+  reserved_concurrent_executions = -1
+  role                           = "arn:aws:iam::601284756801:role/service-role/dataupdate-role-rahmkjru"
+  runtime                        = "python3.11"
+  s3_bucket                      = null
+  s3_key                         = null
+  s3_object_version              = null
+  skip_destroy                   = false
+  source_code_hash               = "s6RVmOb5uN+bPx9hSjmqWEBnnSUb3mErIUKrRq1SMws="
+  tags                           = {}
+  tags_all                       = {}
+  timeout                        = 3
+  ephemeral_storage {
+    size = 512
+  }
+  tracing_config {
+    mode = "PassThrough"
+  }
+}
