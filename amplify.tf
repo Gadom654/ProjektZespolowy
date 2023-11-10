@@ -1,7 +1,3 @@
-# __generated__ by Terraform
-# Please review these resources and move them into your main configuration files.
-
-# __generated__ by Terraform from "d1ku3c7glap9vr"
 resource "aws_amplify_app" "my_amp" {
   access_token                  = var.github_oauth_token # sensitive
   auto_branch_creation_patterns = []
@@ -51,6 +47,9 @@ EOT
 resource "aws_amplify_branch" "amplify_branch" {
   app_id = aws_amplify_app.my_amp.id
   branch_name = var.branch_name
+  tags = {
+    Projekt = "ProjektZespolowy"
+  }
 }
 resource "aws_amplify_domain_association" "domain_association" {
   app_id      = aws_amplify_app.my_amp.id
@@ -61,7 +60,6 @@ resource "aws_amplify_domain_association" "domain_association" {
     branch_name = aws_amplify_branch.amplify_branch.branch_name
     prefix      = var.branch_name
   }
-
 }
 output "amplify_app_id" {
   value = aws_amplify_app.my_amp.id
@@ -70,3 +68,4 @@ output "amplify_app_id" {
 output "amplify_app_url" {
   value = aws_amplify_domain_association.domain_association.domain_name
 }
+
