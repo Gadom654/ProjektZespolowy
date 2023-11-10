@@ -10,8 +10,8 @@ jobs:
       - run:
           name: Terraform Init and Plan
           command: |
-            terraform init
-            terraform plan
+            terraform init -input=false
+            terraform plan -out tfapply -var-file terraform.tfvars
       - persist_to_workspace:
           root: .
           paths:
@@ -26,7 +26,7 @@ jobs:
       - run:
           name: Terraform Apply
           command: |
-            terraform apply -auto-approve
+            terraform apply -auto-approve tfapply
       - persist_to_workspace:
           root: .
           paths:
@@ -41,7 +41,7 @@ jobs:
       - run:
           name: Terraform Create Destroy Plan
           command: |
-            terraform plan -destroy
+            terraform plan -destroy -out tfdestroy -var-file terraform.rfvars
       - persist_to_workspace:
           root: .
           paths:
@@ -56,7 +56,7 @@ jobs:
       - run:
           name: Terraform Destroy
           command: |
-            terraform destroy -auto-approve
+            terraform destroy -auto-approve tfdestroy
 
 workflows:
   version: 2
