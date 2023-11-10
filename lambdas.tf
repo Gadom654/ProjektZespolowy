@@ -10,7 +10,7 @@ resource "aws_lambda_function" "updater" {
   filename      = "lambda/lambda_update.zip"
   function_name = "updater"
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "update.py"
+  handler       = "update.lambda_handler"
 
   source_code_hash = data.archive_file.lambda_update.output_base64sha256
 
@@ -35,7 +35,7 @@ resource "aws_lambda_function" "getter" {
   function_name = "getter"
   role          = aws_iam_role.iam_for_lambda.arn
 
-  handler       = "getter.py"
+  handler       = "getter.lambda_handler"
   source_code_hash = data.archive_file.lambda_getter.output_base64sha256
 
   runtime = "python3.11"
@@ -56,7 +56,7 @@ resource "aws_lambda_function" "lambda_update_user" {
   filename      = "lambda/lambda_update_user.zip"
   function_name = "updater_user"
   role          = aws_iam_role.iam_for_lambda.arn
-  handler       = "update_user.py"
+  handler       = "update_user.lambda_handler"
   source_code_hash = data.archive_file.lambda_update_user.output_base64sha256
 
   runtime = "python3.11"
