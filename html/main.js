@@ -54,3 +54,69 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 });
+    // Logika dla formularza logowania
+if (document.getElementById('loginForm')) {
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById('loginUsername').value;
+        var password = document.getElementById('loginPassword').value;
+
+        var authenticationData = {
+            Username: username,
+            Password: password,
+        };
+        var authenticationDetails = new AmazonCognitoIdentity.AuthenticationDetails(authenticationData);
+
+        var userData = {
+            Username: username,
+            Pool: userPool // Zdefiniuj userPool zgodnie z konfiguracją AWS Cognito
+        };
+        var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
+        cognitoUser.authenticateUser(authenticationDetails, {
+            onSuccess: function(result) {
+                console.log('Login successful!');
+                window.location.href = 'update.html'; // Przekierowanie po udanym logowaniu
+            },
+            onFailure: function(err) {
+                console.error(err.message || JSON.stringify(err));
+                alert("Błąd logowania: " + err.message);
+            }
+        });
+    });
+}
+
+// Logika dla formularza "Szybka porada"
+if (document.getElementById('allergyForm')) {
+    document.getElementById('allergyForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var allergies = document.querySelectorAll('input[name="allergies"]:checked');
+        var advice = '';
+
+        if (allergies.length === 0) {
+            advice = 'Wszystko jest pod kontrolą. Pamiętaj jednak, że alergie mogą się rozwinąć w każdym wieku, więc bądź uważny na ewentualne objawy.';
+        } else {
+            var selectedAllergies = Array.from(allergies).map(function(el) { return el.value; });
+
+            if (selectedAllergies.some(allergy => ["Pyłki", "Kurz", "Pleśń", "Łupież zwierzęcy"].includes(allergy))) {
+                advice += 'Pamiętaj o regularnym zażywaniu leków antyhistaminowych, szczególnie w sezonie pylenia oraz o utrzymaniu czystości w domu, aby ograniczyć narażenie na alergeny.\n';
+            }
+
+            if (selectedAllergies.some(allergy => ["Alergie pokarmowe", "Alergie na leki"].includes(allergy))) {
+                advice += 'Zawsze sprawdzaj skład produktów oraz informuj personel medyczny o swoich alergiach. W razie wystąpienia reakcji alergicznej, miej przy sobie leki przeciwhistaminowe.\n';
+            }
+
+            if (selectedAllergies.includes("Zmiany pogodowe")) {
+                advice += 'Monitoruj prognozy pogody i planuj działania zgodnie z oczekiwanymi warunkami. W dniach o dużych zmianach ciśnienia atmosferycznego, możliwe są nasilone objawy alergii.\n';
+            }
+
+            if (selectedAllergies.includes("Ukąszenia owadów")) {
+                advice += 'Unikaj miejsc, gdzie mogą przebywać owady i zawsze miej przy sobie autostrzykawkę z adrenaliną. W razie ukąszenia, niezwłocznie skontaktuj się z lekarzem.';
+            }
+        }
+
+        alert(advice);
+    });
+}

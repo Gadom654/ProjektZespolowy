@@ -183,3 +183,26 @@ button:hover {
 .btn:hover {
     background-color: #005999;
 }
+
+.tips-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.tips-title {
+    font-size: 2.5em;
+    color: #0077B6;
+    margin-bottom: 20px;
+}
+
+.checkbox-group {
+    margin-bottom: 20px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+}
