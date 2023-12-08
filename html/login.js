@@ -18,18 +18,24 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
             console.log('Login successful!');
-            fetch('https://xrb4ovumaj.execute-api.eu-central-1.amazonaws.com/getter', {
-                mode: 'no-cors',
+
+            // Replace Lambda invoke with Fetch API request to API Gateway
+            fetch('https://myq7ysgcu2.execute-api.eu-central-1.amazonaws.com/stager', {
                 method: 'POST',
                 headers: {
-                    'content-type': 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ user: "e416eeb6-db8a-4ae7-ae8c-eb1afb5894d4" })
+                body: JSON.stringify({ user: username }) // Ensure this matches your Lambda function's expected input
             })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     console.log("API Gateway response:", data);
-                    window.location.href = data.url;
+                    window.location.href = data.url; // Redirects the user to the returned URL
                 })
                 .catch(err => {
                     console.error('API Gateway error:', err);
@@ -39,5 +45,5 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             console.error(err.message || JSON.stringify(err));
             alert("Błąd logowania: " + err.message);
         },
-    });
+    }); 
 })
