@@ -4,7 +4,7 @@ def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
     user_table = dynamodb.Table('usersdata')
     alergy_table = dynamodb.Table('alergydata')
-
+    
     username = event['user']  # Assuming userId is passed in the event
 
     # Check if user has data in usersdata table
