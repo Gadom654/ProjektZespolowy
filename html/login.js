@@ -15,7 +15,6 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
         Pool: userPool
     };
     var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
-
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
             console.log('Login successful!');
@@ -24,7 +23,9 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
             fetch('https://xrb4ovumaj.execute-api.eu-central-1.amazonaws.com/getter', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'content-type': 'application/json',
+                    'Cache-Control': 'no-cache, no-store, must-revalidate',
+                    'x-content-type-options': 'nosniff'
                 },
                 body: JSON.stringify({ userId: username })
             })
