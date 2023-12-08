@@ -18,14 +18,11 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
             console.log('Login successful!');
-
-            // Replace Lambda invoke with Fetch API request to API Gateway
             fetch('https://xrb4ovumaj.execute-api.eu-central-1.amazonaws.com/getter', {
+                mode: 'no-cors',
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
-                    'Cache-Control': 'no-cache, no-store, must-revalidate',
-                    'x-content-type-options': 'nosniff'
                 },
                 body: JSON.stringify({ userId: username })
             })
