@@ -1,14 +1,14 @@
-mport boto3
+import boto3
 
 def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
     user_table = dynamodb.Table('usersdata')
     alergy_table = dynamodb.Table('alergydata')
     
-    username = event['userId']  # Assuming userId is passed in the event
+    username = event['user']  # Assuming userId is passed in the event
 
     # Check if user has data in usersdata table
-    user_response = user_table.get_item(Key={'username': username})
+    user_response = user_table.get_item(Key={'user': username})
     if 'Item' not in user_response:
         return {'url': 'update.html'}
 
