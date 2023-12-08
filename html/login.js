@@ -24,7 +24,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
                 headers: {
                     'content-type': 'application/json',
                 },
-                body: JSON.stringify({ userId: username })
+                body: JSON.stringify({ user: "e416eeb6-db8a-4ae7-ae8c-eb1afb5894d4" })
             })
                 .then(response => response.json())
                 .then(data => {
