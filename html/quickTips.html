@@ -1,58 +1,107 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Szybka Porada</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="sky">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Szybka Porada</title>
+        <link rel="stylesheet" href="assets\css\main.css" />
+    </head>
+    <body class="sky">
+        <div class="container tips-container">
+            <h1 class="tips-title">Szybka Porada</h1>
+            <form id="allergyForm">
+                <h2>Wybierz swoje alergie:</h2>
 
-    <div class="container tips-container">
-        <h1 class="tips-title">Szybka Porada</h1>
-        <form id="allergyForm">
-            <h2>Wybierz swoje alergie:</h2>
-            
-            <div class="checkbox-group">
-                <!-- Lista alergii -->
-                <input type="checkbox" id="pollen" name="allergies" value="Pyłki">
-                <label for="pollen">Pyłki</label><br>
+                <div class="checkbox-group">
+                    <!-- Lista alergii -->
+                    <input
+                        type="checkbox"
+                        id="pollen"
+                        name="allergies"
+                        value="Pyłki"
+                    />
+                    <label for="pollen">Pyłki</label><br />
 
-                <input type="checkbox" id="dust" name="allergies" value="Kurz">
-                <label for="dust">Kurz</label><br>
-                
-                <input type="checkbox" id="nuts" name="allergies" value="Orzechy">
-                <label for="nuts">Orzechy</label><br>
+                    <input
+                        type="checkbox"
+                        id="dust"
+                        name="allergies"
+                        value="Kurz"
+                    />
+                    <label for="dust">Kurz</label><br />
 
-                <input type="checkbox" id="mold" name="allergies" value="Pleśń">
-                <label for="mold">Pleśń</label><br>
+                    <input
+                        type="checkbox"
+                        id="nuts"
+                        name="allergies"
+                        value="Orzechy"
+                    />
+                    <label for="nuts">Orzechy</label><br />
 
-                <input type="checkbox" id="latex" name="allergies" value="Lateks">
-                <label for="latex">Lateks</label><br>
+                    <input
+                        type="checkbox"
+                        id="mold"
+                        name="allergies"
+                        value="Pleśń"
+                    />
+                    <label for="mold">Pleśń</label><br />
 
-                <input type="checkbox" id="weatherChanges" name="allergies" value="Zmiany pogodowe">
-                <label for="weatherChanges">Zmiany pogodowe</label><br>
+                    <input
+                        type="checkbox"
+                        id="latex"
+                        name="allergies"
+                        value="Lateks"
+                    />
+                    <label for="latex">Lateks</label><br />
 
-                <input type="checkbox" id="animalDander" name="allergies" value="Łupież zwierzęcy">
-                <label for="animalDander">Łupież zwierzęcy</label><br>
+                    <input
+                        type="checkbox"
+                        id="weatherChanges"
+                        name="allergies"
+                        value="Zmiany pogodowe"
+                    />
+                    <label for="weatherChanges">Zmiany pogodowe</label><br />
 
-                <input type="checkbox" id="foodAllergies" name="allergies" value="Alergie pokarmowe">
-                <label for="foodAllergies">Alergie pokarmowe</label><br>
+                    <input
+                        type="checkbox"
+                        id="animalDander"
+                        name="allergies"
+                        value="Łupież zwierzęcy"
+                    />
+                    <label for="animalDander">Łupież zwierzęcy</label><br />
 
-                <input type="checkbox" id="drugAllergies" name="allergies" value="Alergie na leki">
-                <label for="drugAllergies">Alergie na leki</label><br>
+                    <input
+                        type="checkbox"
+                        id="foodAllergies"
+                        name="allergies"
+                        value="Alergie pokarmowe"
+                    />
+                    <label for="foodAllergies">Alergie pokarmowe</label><br />
 
-                <input type="checkbox" id="insectStings" name="allergies" value="Ukąszenia owadów">
-                <label for="insectStings">Ukąszenia owadów</label><br>
+                    <input
+                        type="checkbox"
+                        id="drugAllergies"
+                        name="allergies"
+                        value="Alergie na leki"
+                    />
+                    <label for="drugAllergies">Alergie na leki</label><br />
 
-                <!-- Możesz dodać więcej alergii według potrzeb -->
-            </div>
+                    <input
+                        type="checkbox"
+                        id="insectStings"
+                        name="allergies"
+                        value="Ukąszenia owadów"
+                    />
+                    <label for="insectStings">Ukąszenia owadów</label><br />
 
-            <button type="submit">Wyślij</button>
-        </form>
-    </div>
+                    <!-- Możesz dodać więcej alergii według potrzeb -->
+                </div>
+                <div class="tips-button">
+                    <button type="submit">Wyślij</button>
+                </div>
+            </form>
+        </div>
 
-    <script src="main.js"></script>
-
-</body>
+        <script src="main.js"></script>
+    </body>
 </html>
