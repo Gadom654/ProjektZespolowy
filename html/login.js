@@ -15,6 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
         Pool: userPool
     };
     var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
+
 cognitoUser.authenticateUser(authenticationDetails, {
     onSuccess: function(result) {
         console.log('Login successful!');
