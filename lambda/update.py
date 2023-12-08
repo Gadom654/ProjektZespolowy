@@ -8,13 +8,15 @@ def lambda_handler(event, context):
     table = dynamodb.Table('alergydata')
 
     # Example data to add - modify as per your requirement
-    data = {
-        'alergy': 'brzoza',
-        'poziompy': '100',
-    }
 
-    # Put item in table
-    table.put_item(Item=data)
+    allergies = [
+            {'alergy': 'brzoza', 'poziompy': '0'},
+            {'alergy': 'trawa', 'poziompy': '0'},
+            {'alergy': 'leszczyna', 'poziompy': '0'},
+            {'alergy': 'kurz', 'poziompy': '3'} 
+        ]
+    for data in allergies:
+        table.put_item(Item=data)
 
     return {
         'statusCode': 200,
