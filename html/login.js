@@ -16,36 +16,30 @@ document.getElementById('loginForm').addEventListener('submit', function(event) 
     };
     var cognitoUser = new AmazonCognitoIdentity.CognitoUser(userData);
 
-    cognitoUser.authenticateUser(authenticationDetails, {
-        onSuccess: function(result) {
-            // User authentication was successful
-            console.log('Login successful!');
-            var AWS = require('aws-sdk');
-            AWS.config.region = 'eu-central-1';
-	    	var lambda = new AWS.Lambda();
-	
-	    	var params = {
-	        	FunctionName: "getter",
-				Payload: JSON.stringify({userId: Username})
-	    	};
-	    	lambda.invoke(params, function(err, data) {
-				if  (err) {
-		   		 	console.log(err, err.stack);
-				} else {
-		    		console.log("Lambda function executed:", data);
-					var resposneData = JSON.parse(data.Payload);
-					window.location.href = responseData.url;
-        		}
-				});
-		},
-        onFailure: function(err) {
-            // Handle errors
-            console.error(err.message || JSON.stringify(err));
-            alert("Błąd logowania: " + err.message);
-        },
+cognitoUser.authenticateUser(authenticationDetails, {
+    onSuccess: function(result) {
+        console.log('Login successful!');
 
-        // Optional: Implement MFA, newPasswordRequired, etc.
-        // These can be added as additional callback methods
-    });
+        // Replace Lambda invoke with Fetch API request to API Gateway
+        fetch('https://xrb4ovumaj.execute-api.eu-central-1.amazonaws.com/getter', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userId: username })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log("API Gateway response:", data);
+            window.location.href = data.url;
+        })
+        .catch(err => {
+            console.error('API Gateway error:', err);
+        });
+    },
+    onFailure: function(err) {
+        console.error(err.message || JSON.stringify(err));
+        alert("Błąd logowania: " + err.message);
+    },
 });
 
