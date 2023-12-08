@@ -18,7 +18,6 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
             console.log('Login successful!');
-
             // Replace Lambda invoke with Fetch API request to API Gateway
             fetch('https://myq7ysgcu2.execute-api.eu-central-1.amazonaws.com/stager', {
                 method: 'POST',
