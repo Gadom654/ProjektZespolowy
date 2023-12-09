@@ -110,18 +110,40 @@ button:hover {
     background-color: #005999;
 }
 /* Style dla profilu */
+
 .profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.profile-button {
+    text-align: center;
 }
 
 .profile-title {
     font-size: 2.5em;
     color: #0077B6;
     margin-bottom: 20px;
+}
+
+.profile-label-group {
+    margin-bottom: 20px;
+    display: block;    
+}
+
+.profile-form-group {
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .form-group {
@@ -134,7 +156,14 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .login-title {
@@ -143,6 +172,10 @@ button:hover {
     margin-bottom: 20px;
 }
 
+.button-quick {
+    padding: 10px;
+    text-align: center;
+}
 /* Style dla strony głównej */
 .home-container {
     display: flex;
@@ -184,13 +217,25 @@ button:hover {
     background-color: #005999;
 }
 
+/* style dla szybkiej porady */
+
 .tips-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
-    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tips-button {
+    text-align: center;
 }
 
 .tips-title {
@@ -204,5 +249,49 @@ button:hover {
 }
 
 .checkbox-group input[type="checkbox"] {
-    margin-right: 10px;
+    margin: 8px;
+}
+
+/* style dla weryfikacji */
+.verification-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.verification-title {
+    padding: 10px;
+}
+
+/* style dla aktualizacji */
+.update-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Białe tło z lekką przezroczystością */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.update-title {
+    padding: 10px;
+}
+
+.update-button {
+    text-align: center;
 }

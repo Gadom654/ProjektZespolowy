@@ -18,7 +18,7 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
     cognitoUser.authenticateUser(authenticationDetails, {
         onSuccess: function (result) {
             console.log('Login successful!');
-            
+
             //keeping login username
             localStorage.setItem('username', username);
 
