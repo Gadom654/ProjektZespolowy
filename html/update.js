@@ -1,30 +1,15 @@
-window.onload = function() {
-    retrieveUserData();
-};
-
-function retrieveUserData() {
-    fetch('https://zgizfcgqhd.execute-api.eu-central-1.amazonaws.com/stage1/getUserData', {
-        method: 'GET',
-        headers: {
-            // Authorization headers if needed
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Populate form fields with this data
-        // Example: document.getElementById('userDataField1').value = data.field1;
-    })
-    .catch(error => console.error('Error:', error));
-}
-
 document.getElementById('updateForm').addEventListener('submit', function(event) {
     event.preventDefault();
+
+    const storedUsername = localStorage.getItem('username'); // Retrieve the username from local storage
+    const fieldData = document.getElementById('userDataField1').value; // Collect the value from the form field
+
     const updatedData = {
-        // Collect data from form fields
-        // Example: field1: document.getElementById('userDataField1').value
+        username: storedUsername, // Username from local storage
+        field1: fieldData // Data from the form field
     };
 
-    fetch('https://h5392bexta.execute-api.eu-central-1.amazonaws.com/updateUserData', {
+    fetch('https://myq7ysgcu2.execute-api.eu-central-1.amazonaws.com/stager/updateuserdata', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
