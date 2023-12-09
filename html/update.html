@@ -23,11 +23,16 @@
                 </div>
                 <!-- Add more fields as needed -->
 
-                <div class="form-group update-button">
-                    <button type="submit">Aktualizuj</button>
-                </div>
-            </form>
-        </div>
+        <form id="updateForm">
+            <!-- Example Input Fields -->
+            <div class="form-group">
+                <label for="userDataField1">Czy jesteś uczulony na brozę:</label>
+                <select id="userDataField1" name="userDataField1" required>
+                    <option value="tak">Tak</option>
+                    <option value="nie">Nie</option>
+                </select>
+            </div>
+            <!-- Add more fields as needed -->
 
         <script src="update.js"></script>
     </body>
